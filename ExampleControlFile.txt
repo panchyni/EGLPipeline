@@ -1,0 +1,10 @@
+Inc	0a_Inncolum/F2_Innoc_sample_1.sort.vcf.reads_summary.chromosome_15,0a_Inncolum/F2_Innoc_sample_2.sort.vcf.reads_summary.chromosome_15
+Ctl	0b_SteadyState/SS_1_1213_realigned_V1.vcf.reads_summary.chromosome_15,0b_SteadyState/SS_2_1213_realigned_V1.vcf.reads_summary.chromosome_15,0b_SteadyState/SS_3_1213_realigned_V1.vcf.reads_summary.chromosome_15
+Trt	0c_Expeperiment/LR_1_1213_realigned_V1.vcf.reads_summary.chromosome_15,0c_Expeperiment/LR_2_1213_realigned_V1.vcf.reads_summary.chromosome_15,0c_Expeperiment/LR_3_1213_realigned_V1.vcf.reads_summary.chromosome_15
+BckSNP	bwa_msdr_MR_ih_lc_nr503_f.vcf.1009vs2343.unique.snps.CR2343.PASS.filter_5.positions.chromosome_15,CR2343
+AltSNP	bwa_msdr_MR_ih_lc_nr503_f.vcf.1009vs2343.unique.snps.CR1009.PASS.filter_5.positions.chromosome_15,CR1009
+Wsize	10000
+Witer	2000
+minSNP	5
+Scripts	/mnt/home/panchyni/4_GitLocal/EGLPipline
+MatrixFile	CombinedMatrix_runLR_time1213_chr15

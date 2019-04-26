@@ -91,6 +91,8 @@ def ContrastContigs(contig_files,cutoff,sign):
     # For each file
     for f in contig_files:
 
+        #print f
+
         # Get file name and location indexes for ctl and treatment columns
         file = f[0]
         ctl_idxs = f[1]
@@ -99,6 +101,7 @@ def ContrastContigs(contig_files,cutoff,sign):
         file_lines = [ln.strip().split("\t") for ln in open(file,"r").readlines()[1:]] # Skip file header
         
         for split_ln in file_lines:
+            #print split_ln
             window = split_ln[0]
             all_values = [float(v) for v in split_ln[1:] if not v == "NA"]
             ctl_values = [float(split_ln[i]) for i in ctl_idxs if not split_ln[i] == "NA"]
@@ -123,6 +126,7 @@ def ContrastContigs(contig_files,cutoff,sign):
         ctl_pass = CheckValues(ctl_dict[window],cutoff,sign)
         trt_pass = CheckValues(trt_dict[window],cutoff,sign)
  
+        #window_values = ['0','0','0','0','0','0']
         window_values = ['0','0','0','0','0']
 
         if all_pass == True:
@@ -140,7 +144,10 @@ def ContrastContigs(contig_files,cutoff,sign):
         if trt_pass == True and ctl_pass == False:
             out_dict["trt_unique_out"].append(window + "\t" + str(Avg(trt_dict[window])) + "\n")
             window_values[4] = "1"
-         
+        #if trt_pass == True and ctl_pass == True:
+        #    out_dict["overlapping_out"].append(window + "\t" + str(Avg(all_dict[window])) + "\n")
+        #    window_values[5] = "1"
+
         window_lines.append(window + "\t" + "\t".join(window_values) + "\n")
 
     return out_dict, window_lines
@@ -311,6 +318,7 @@ for contig in freq_diff_dict.keys():
     
     # For each group in the contig
     for file_key in freq_diff_dict[contig].keys():
+
         out_dict, window_lines  = ContrastContigs(freq_diff_dict[contig][file_key],freq_cutoff,freq_sign)    
     
         base_out = "Contrast_FreqDiff_" + contig + "_" + file_key + "_"
